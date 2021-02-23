@@ -13,7 +13,6 @@ class GameSession {
     private(set) var currentQuestion: Int = 0
     private(set) var questions: [Question] = []
     private(set) var createdAt: Date
-    private(set) var endedAt: Date?
     private(set) var score: Score = 0
     private(set) var answers: [Answer] = []
     
@@ -25,9 +24,7 @@ class GameSession {
     }
     
     func finish() -> GameResults {
-        endedAt = Date()
-        
-        return GameResults(answers: answers, questions: questions, score: score, started: createdAt, ended: endedAt!)
+        return GameResults(answers: answers, questions: questions, score: score, started: createdAt, ended: Date())
     }
     
     private func getCurrentQuestion() -> Question? {
@@ -41,14 +38,7 @@ class GameSession {
     func handleAnswer(_ answer: Answer) -> QuestionViewModel {
         answers.append(answer)
         
-        guard let q = getCurrentQuestion() else {
-            return QuestionViewModel(
-                question: nil,
-                score: score,
-                shouldEndGame: true
-            )
-        }
-        
+        let q = getCurrentQuestion()!
         let isRight = isAnswerRight(answer, question: q)
         handleScore(isRight)
         
@@ -56,21 +46,20 @@ class GameSession {
         
         let nextQuestion = getCurrentQuestion()
         
+        return buildQuestiovViewModel(q: nextQuestion, shouldEndGame: !isRight || nextQuestion == nil)
+    }
+    
+    private func buildQuestiovViewModel(q: Question?, shouldEndGame: Bool) -> QuestionViewModel {
         return QuestionViewModel(
-            question: nextQuestion,
+            question: q,
             score: score,
-            shouldEndGame: !isRight || nextQuestion == nil
+            shouldEndGame: shouldEndGame
         )
     }
     
     func getQuestionViewModel() -> QuestionViewModel {
         let q = getCurrentQuestion()
-        
-        return QuestionViewModel(
-            question: q,
-            score: score,
-            shouldEndGame: q == nil
-        )
+        return buildQuestiovViewModel(q: q, shouldEndGame: q == nil)
     }
     
     // начислить очки
