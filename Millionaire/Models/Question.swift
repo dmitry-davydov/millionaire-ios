@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Answer: String, Codable {
+enum Answer: Int, Codable {
     case A
     case B
     case C

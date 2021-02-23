@@ -11,6 +11,8 @@ class MainViewController: UIViewController, GameViewControllerDelegate {
 
     private let moveToResultsSegue = "moveToResultsSegue"
     private let moveToGameSegue = "moveToGameSegue"
+    private let moveToGameSettings = "moveToGameSettings"
+    private let moveToAddQuestion = "moveToAddQuestion"
     
     @IBOutlet weak var startGamgeButton: UIButton!
     @IBOutlet weak var resultsButton: UIButton!
@@ -25,6 +27,14 @@ class MainViewController: UIViewController, GameViewControllerDelegate {
         print("results")
         
         performSegue(withIdentifier: moveToResultsSegue, sender: nil)
+    }
+    
+    @IBAction func settingsPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: moveToGameSettings, sender: nil)
+    }
+    
+    @IBAction func addQuestionPressed(_ sender: UIButton) {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
