@@ -1,22 +1,22 @@
 //
-//  UserQuestionsCaretaker.swift
+//  UserAnswersCaretaker.swift
 //  Millionaire
 //
-//  Created by Дима Давыдов on 23.02.2021.
+//  Created by Дима Давыдов on 26.02.2021.
 //
 
 import Foundation
 
-typealias UserQuestionsMemento = Data
+typealias UserAnswersMemento = Data
 
-class UserQuestionsCaretaker {
+class UserAnswersCaretaker {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
-    private let key = "userQuestions"
+    private let key = "userAnswers"
     
-    func save(questions: [String]) {
+    func save(answers: [String]) {
         do {
-            let data: UserQuestionsMemento = try encoder.encode(questions)
+            let data: UserAnswersMemento = try encoder.encode(answers)
             UserDefaults.standard.setValue(data, forKey: key)
         } catch {
             print(error.localizedDescription)
@@ -24,7 +24,7 @@ class UserQuestionsCaretaker {
     }
     
     func load() -> [String] {
-        guard let data: UserQuestionsMemento = UserDefaults.standard.data(forKey: key) else {
+        guard let data: UserAnswersMemento = UserDefaults.standard.data(forKey: key) else {
             return []
         }
         

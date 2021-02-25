@@ -15,6 +15,9 @@ class Game {
     
     private var gameResultsCareTaker = GameResultCaretaker()
     private var gameSettingsCareTaker = GameSettingsCaretaker()
+    private var userQuestionsAdapter = UserQuestionsAnswersAdapter()
+    
+    private var questionBuilder = QuestionBuilder()
     
     private init() {
         results = gameResultsCareTaker.loadRecords()
@@ -31,8 +34,23 @@ class Game {
         gameSettingsCareTaker.saveSettings(settings: settings)
     }
     
+    func saveUserQuestionsAnswers(questions: [String], answers: [String]) {
+        userQuestionsAdapter.saveUserQuestionsAnswers(questions: questions, answers: answers)
+    }
+    
+    func getUserQuestionsAnswers() -> [UserQuestionDto] {
+        return userQuestionsAdapter.getUserQuestionDtoList()
+    }
+    
     func newGame() {
-        session = GameSession(with: gameSettingsCareTaker.loadSettings())
+        
+        let questionBuilder = QuestionBuilder()
+        
+        let questions = StrategyFactory
+            .factory(strategy: settings.strategyType)
+            .getQuestions(initial: questionBuilder.build(userQuestionsAnswersDto: userQuestionsAdapter.getUserQuestionDtoList()))
+        
+        session = GameSession(questions: questions)
     }
     
     func finish() -> GameResults? {

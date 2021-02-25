@@ -9,9 +9,6 @@ import Foundation
 
 class RandomQuestionStrategy: QuestionStrategyProcotol {
     func getQuestions(initial: [Question]) -> [Question] {
-        var q = initial
-        q.shuffle()
-        
-        return q
+        return initial.shuffled()
     }
 }

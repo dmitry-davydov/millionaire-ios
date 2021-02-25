@@ -131,22 +131,71 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="801.5625"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="Etc-qp-mfU">
             <objects>
-                <tableViewController id="fk8-MP-llh" sceneMemberID="viewController">
+                <tableViewController id="fk8-MP-llh" customClass="AddQuestionTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jmu-qp-syF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="JuS-rO-rlr">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Пользовательские вопросы" id="GoA-k1-cPQ">
+                                    <barButtonItem key="rightBarButtonItem" title=" Добавить" id="eZK-kx-cRv">
+                                        <connections>
+                                            <action selector="buildQuestions:" destination="fk8-MP-llh" id="U9c-P0-4PK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4er-10-kRb">
+                            <rect key="frame" x="0.0" y="214" width="414" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="plus" catalog="system"/>
+                            <connections>
+                                <action selector="addQuestionPressed:" destination="fk8-MP-llh" eventType="touchUpInside" id="7rc-xk-yVE"/>
+                            </connections>
+                        </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AS4-MH-CmC">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addQuestionCell" rowHeight="114" id="lly-LM-erh" customClass="AddQuestionTableViewCell" customModule="Millionaire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AS4-MH-CmC" id="z45-U1-X3o">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lly-LM-erh" id="GVq-i2-odR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вопрос" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oc-6x-iTx">
+                                            <rect key="frame" x="20" y="19" width="374" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="GGe-v4-CBo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Правильный ответ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O6V-iQ-uc7">
+                                            <rect key="frame" x="20" y="61" width="374" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="O6V-iQ-uc7" firstAttribute="top" secondItem="9oc-6x-iTx" secondAttribute="bottom" constant="8" id="1bX-Av-K8t"/>
+                                        <constraint firstItem="O6V-iQ-uc7" firstAttribute="leading" secondItem="GVq-i2-odR" secondAttribute="leadingMargin" id="7pK-TG-ZHv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="O6V-iQ-uc7" secondAttribute="bottom" constant="8" id="Eb9-4G-byz"/>
+                                        <constraint firstItem="9oc-6x-iTx" firstAttribute="trailing" secondItem="GVq-i2-odR" secondAttribute="trailingMargin" id="PZS-bs-sAW"/>
+                                        <constraint firstItem="9oc-6x-iTx" firstAttribute="leading" secondItem="GVq-i2-odR" secondAttribute="leadingMargin" id="UZu-kt-bvw"/>
+                                        <constraint firstItem="9oc-6x-iTx" firstAttribute="top" secondItem="GVq-i2-odR" secondAttribute="topMargin" constant="8" id="fHr-Qh-uM1"/>
+                                        <constraint firstItem="O6V-iQ-uc7" firstAttribute="trailing" secondItem="GVq-i2-odR" secondAttribute="trailingMargin" id="xLY-ot-LZF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="questionUITextField" destination="9oc-6x-iTx" id="ZKI-Ge-QaA"/>
+                                    <outlet property="rightAnswer" destination="O6V-iQ-uc7" id="nN1-JA-L2o"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -154,10 +203,14 @@
                             <outlet property="delegate" destination="fk8-MP-llh" id="VR4-Z4-sHe"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="5wN-YB-TB6"/>
+                    <connections>
+                        <outlet property="addQuestionUIButton" destination="4er-10-kRb" id="Rtj-wv-6Om"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OBP-FK-TIr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="560"/>
+            <point key="canvasLocation" x="1002.8985507246377" y="559.82142857142856"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="qlM-F6-GLM">
@@ -332,8 +385,9 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="bg">
-            <color red="0.01385417301" green="0.006510361563" blue="0.18432685730000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.014000000432133675" green="0.0070000002160668373" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

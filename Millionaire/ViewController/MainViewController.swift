@@ -34,7 +34,7 @@ class MainViewController: UIViewController, GameViewControllerDelegate {
     }
     
     @IBAction func addQuestionPressed(_ sender: UIButton) {
-        
+        performSegue(withIdentifier: moveToAddQuestion, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

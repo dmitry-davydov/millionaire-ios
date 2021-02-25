@@ -20,23 +20,12 @@ class GameSession {
     private(set) var score: Score = 0
     private(set) var answers: [Answer] = []
     
-    private let settings: GameSettings
-    
-    init(with settings: GameSettings) {
-        self.settings = settings
+    init(questions: [Question]) {
+        
+        self.questions = questions
         createdAt = Date()
         
-        loadQuestions()
-        
         notificateGameProgress()
-    }
-    
-    private func loadQuestions() {
-        // получить вопросы
-        
-        questions = StrategyFactory
-            .factory(strategy: settings.strategyType)
-            .getQuestions(initial: QuestionDataProvider.loadQuestions())
     }
     
     private func notificateGameProgress() {
