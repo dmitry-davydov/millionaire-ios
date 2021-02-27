@@ -47,7 +47,7 @@ class GameViewController: UIViewController {
     private func layoutAnswerButtonList() {
         for button in answerButtonList {
             button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor(named: "buttonBorder")!.cgColor
+            button.layer.borderColor = UIColor.buttonBorder .cgColor
             button.layer.cornerRadius = 5
         }
     }
