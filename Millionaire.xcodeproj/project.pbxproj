@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1976F025EA70CE00FDACD6 /* UserQuestionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1976EF25EA70CE00FDACD6 /* UserQuestionsFactory.swift */; };
+		0A1976F425EA71A300FDACD6 /* GameQuestionsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1976F325EA71A300FDACD6 /* GameQuestionsAdapter.swift */; };
 		0A44A09D25E50BF300B7AD29 /* RandomQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A09C25E50BF300B7AD29 /* RandomQuestionStrategy.swift */; };
 		0A44A0A125E50C0600B7AD29 /* SequentalQuestionStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0A025E50C0600B7AD29 /* SequentalQuestionStrategy.swift */; };
 		0A44A0A625E5183600B7AD29 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0A525E5183600B7AD29 /* GameSettings.swift */; };
@@ -19,8 +21,7 @@
 		0A44A0C125E6E7DC00B7AD29 /* AddQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0C025E6E7DC00B7AD29 /* AddQuestionTableViewCell.swift */; };
 		0A44A0C725E6E87B00B7AD29 /* AddQuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0C625E6E87B00B7AD29 /* AddQuestionTableViewController.swift */; };
 		0A44A0CB25E8454800B7AD29 /* QuestionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0CA25E8454800B7AD29 /* QuestionBuilder.swift */; };
-		0A44A0CF25E84B6F00B7AD29 /* UserAnswersCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0CE25E84B6F00B7AD29 /* UserAnswersCaretaker.swift */; };
-		0A44A0D325E84BBF00B7AD29 /* UserQuestionsAnswersAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0D225E84BBF00B7AD29 /* UserQuestionsAnswersAdapter.swift */; };
+		0A44A0D325E84BBF00B7AD29 /* UserQuestionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A44A0D225E84BBF00B7AD29 /* UserQuestionDto.swift */; };
 		0A963B7C25DEF5180024166D /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A963B7B25DEF5180024166D /* Question.swift */; };
 		0A963B8025DEF8840024166D /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A963B7F25DEF8840024166D /* GameSession.swift */; };
 		0A963B8425DEF8950024166D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A963B8325DEF8950024166D /* Game.swift */; };
@@ -40,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1976EF25EA70CE00FDACD6 /* UserQuestionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionsFactory.swift; sourceTree = "<group>"; };
+		0A1976F325EA71A300FDACD6 /* GameQuestionsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameQuestionsAdapter.swift; sourceTree = "<group>"; };
 		0A44A09C25E50BF300B7AD29 /* RandomQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuestionStrategy.swift; sourceTree = "<group>"; };
 		0A44A0A025E50C0600B7AD29 /* SequentalQuestionStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequentalQuestionStrategy.swift; sourceTree = "<group>"; };
 		0A44A0A525E5183600B7AD29 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
@@ -52,8 +55,7 @@
 		0A44A0C025E6E7DC00B7AD29 /* AddQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		0A44A0C625E6E87B00B7AD29 /* AddQuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionTableViewController.swift; sourceTree = "<group>"; };
 		0A44A0CA25E8454800B7AD29 /* QuestionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionBuilder.swift; sourceTree = "<group>"; };
-		0A44A0CE25E84B6F00B7AD29 /* UserAnswersCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnswersCaretaker.swift; sourceTree = "<group>"; };
-		0A44A0D225E84BBF00B7AD29 /* UserQuestionsAnswersAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionsAnswersAdapter.swift; sourceTree = "<group>"; };
+		0A44A0D225E84BBF00B7AD29 /* UserQuestionDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserQuestionDto.swift; sourceTree = "<group>"; };
 		0A963B7B25DEF5180024166D /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		0A963B7F25DEF8840024166D /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		0A963B8325DEF8950024166D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -124,7 +126,7 @@
 		0A44A0D125E84BA100B7AD29 /* Adapter */ = {
 			isa = PBXGroup;
 			children = (
-				0A44A0D225E84BBF00B7AD29 /* UserQuestionsAnswersAdapter.swift */,
+				0A1976F325EA71A300FDACD6 /* GameQuestionsAdapter.swift */,
 			);
 			path = Adapter;
 			sourceTree = "<group>";
@@ -132,6 +134,7 @@
 		0A963B7A25DEF5060024166D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A44A0D225E84BBF00B7AD29 /* UserQuestionDto.swift */,
 				0A963B7B25DEF5180024166D /* Question.swift */,
 				0A963B9425DF0D5C0024166D /* GameResults.swift */,
 				0A44A0A525E5183600B7AD29 /* GameSettings.swift */,
@@ -143,10 +146,11 @@
 		0A963B7E25DEF8770024166D /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				0A44A0CA25E8454800B7AD29 /* QuestionBuilder.swift */,
 				0A44A09A25E50A4400B7AD29 /* Strategies */,
 				0A963B7F25DEF8840024166D /* GameSession.swift */,
 				0A963B8325DEF8950024166D /* Game.swift */,
+				0A1976EF25EA70CE00FDACD6 /* UserQuestionsFactory.swift */,
+				0A44A0CA25E8454800B7AD29 /* QuestionBuilder.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -184,7 +188,6 @@
 				0A963B9D25DF0ECD0024166D /* GameResultCaretaker.swift */,
 				0A44A0A825E5199500B7AD29 /* GameSettingsCaretaker.swift */,
 				0A44A0BC25E5468A00B7AD29 /* UserQuestionsCaretaker.swift */,
-				0A44A0CE25E84B6F00B7AD29 /* UserAnswersCaretaker.swift */,
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -324,9 +327,9 @@
 				0A963B7C25DEF5180024166D /* Question.swift in Sources */,
 				0A44A0A925E5199500B7AD29 /* GameSettingsCaretaker.swift in Sources */,
 				0A44A0B325E5260B00B7AD29 /* GameProgressNotification.swift in Sources */,
-				0A44A0CF25E84B6F00B7AD29 /* UserAnswersCaretaker.swift in Sources */,
-				0A44A0D325E84BBF00B7AD29 /* UserQuestionsAnswersAdapter.swift in Sources */,
+				0A44A0D325E84BBF00B7AD29 /* UserQuestionDto.swift in Sources */,
 				0A44A0B625E5292E00B7AD29 /* GameProgress.swift in Sources */,
+				0A1976F025EA70CE00FDACD6 /* UserQuestionsFactory.swift in Sources */,
 				0A44A0A125E50C0600B7AD29 /* SequentalQuestionStrategy.swift in Sources */,
 				0A963B9525DF0D5C0024166D /* GameResults.swift in Sources */,
 				0A44A0A625E5183600B7AD29 /* GameSettings.swift in Sources */,
@@ -336,6 +339,7 @@
 				0AFB1F6425DEE8FF004401B8 /* ResultsViewController.swift in Sources */,
 				0AFB1F5C25DEE89B004401B8 /* MainViewController.swift in Sources */,
 				0A963B8425DEF8950024166D /* Game.swift in Sources */,
+				0A1976F425EA71A300FDACD6 /* GameQuestionsAdapter.swift in Sources */,
 				0A44A0C125E6E7DC00B7AD29 /* AddQuestionTableViewCell.swift in Sources */,
 				0A963BA325E071950024166D /* ResultCell.swift in Sources */,
 				0A44A0B025E51D3C00B7AD29 /* StrategyFactory.swift in Sources */,

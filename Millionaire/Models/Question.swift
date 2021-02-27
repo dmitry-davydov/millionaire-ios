@@ -8,10 +8,10 @@
 import Foundation
 
 enum Answer: Int, Codable, CaseIterable {
-    case A
-    case B
-    case C
-    case D
+    case a
+    case b
+    case c
+    case d
 }
 
 struct Variant: Codable {

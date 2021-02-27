@@ -14,9 +14,9 @@ protocol QuestionStrategyProcotol {
 class StrategyFactory {
     class func factory(strategy: QuestionStrategy) -> QuestionStrategyProcotol {
         switch strategy {
-        case .Random:
+        case .random:
             return RandomQuestionStrategy()
-        case .Sequental:
+        case .sequental:
             return SequentalQuestionStrategy()
         }
     }

@@ -44,9 +44,15 @@ class AddQuestionTableViewController: UITableViewController, AnswerCellUITextFie
     }
     
     @IBAction func buildQuestions(_ sender: UIButton) {
-        print("build questions")
         
-        Game.shared.saveUserQuestionsAnswers(questions: questions, answers: rightAnswers)
+        var dtoList: [UserQuestionDto] = []
+        
+        for (k, v) in questions.enumerated() {
+            dtoList.append(UserQuestionDto(question: v, answer: rightAnswers[k]))
+        }
+        
+        Game.shared.saveUserQuestionsAnswers(dtoList)
+        dismiss(animated: true, completion: nil)
     }
     
     

@@ -14,7 +14,7 @@ class UserQuestionsCaretaker {
     private let decoder = JSONDecoder()
     private let key = "userQuestions"
     
-    func save(questions: [String]) {
+    func save(questions: [UserQuestionDto]) {
         do {
             let data: UserQuestionsMemento = try encoder.encode(questions)
             UserDefaults.standard.setValue(data, forKey: key)
@@ -23,13 +23,13 @@ class UserQuestionsCaretaker {
         }
     }
     
-    func load() -> [String] {
+    func load() -> [UserQuestionDto] {
         guard let data: UserQuestionsMemento = UserDefaults.standard.data(forKey: key) else {
             return []
         }
         
         do {
-            return try decoder.decode([String].self, from: data)
+            return try decoder.decode([UserQuestionDto].self, from: data)
         } catch {
             print(error.localizedDescription)
             return []

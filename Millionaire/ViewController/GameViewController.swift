@@ -53,19 +53,19 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func variantAPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.A)
+        handleVariant(answer: Answer.a)
     }
     
     @IBAction func variantBPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.B)
+        handleVariant(answer: Answer.b)
     }
     
     @IBAction func variantCPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.C)
+        handleVariant(answer: Answer.c)
     }
     
     @IBAction func variantDPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.D)
+        handleVariant(answer: Answer.d)
     }
 
     private func handleVariant(answer: Answer) {
