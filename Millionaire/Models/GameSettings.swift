@@ -8,10 +8,10 @@
 import Foundation
 
 enum QuestionStrategy: Int, Codable {
-    case Random
-    case Sequental
+    case random
+    case sequental
 }
 
 class GameSettings: Codable {
-    var strategyType: QuestionStrategy = .Sequental
+    var strategyType: QuestionStrategy = .sequental
 }

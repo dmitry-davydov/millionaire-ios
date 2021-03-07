@@ -47,25 +47,25 @@ class GameViewController: UIViewController {
     private func layoutAnswerButtonList() {
         for button in answerButtonList {
             button.layer.borderWidth = 1
-            button.layer.borderColor = UIColor(named: "buttonBorder")!.cgColor
+            button.layer.borderColor = UIColor.buttonBorder .cgColor
             button.layer.cornerRadius = 5
         }
     }
     
     @IBAction func variantAPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.A)
+        handleVariant(answer: Answer.a)
     }
     
     @IBAction func variantBPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.B)
+        handleVariant(answer: Answer.b)
     }
     
     @IBAction func variantCPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.C)
+        handleVariant(answer: Answer.c)
     }
     
     @IBAction func variantDPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.D)
+        handleVariant(answer: Answer.d)
     }
 
     private func handleVariant(answer: Answer) {

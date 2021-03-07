@@ -24,22 +24,22 @@ class SettingsViewController: UIViewController {
         print(savedSettings.strategyType)
         
         switch savedSettings.strategyType {
-        case .Sequental:
+        case .sequental:
             difficultSegmentedControll.selectedSegmentIndex = 0
-        case .Random:
+        case .random:
             difficultSegmentedControll.selectedSegmentIndex = 1
         }
     }
     
     @IBAction func save(_ sender: UIButton) {
         
-        var difficult: QuestionStrategy = QuestionStrategy.Sequental
+        var difficult: QuestionStrategy = QuestionStrategy.sequental
         
         switch difficultSegmentedControll.selectedSegmentIndex {
         case 0:
-            difficult = QuestionStrategy.Sequental
+            difficult = QuestionStrategy.sequental
         case 1:
-            difficult = QuestionStrategy.Random
+            difficult = QuestionStrategy.random
         default:
             break
         }

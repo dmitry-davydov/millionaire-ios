@@ -15,14 +15,14 @@ class GameSession {
             self.notificateGameProgress()
         }
     }
-    private(set) var questions: [Question] = []
+    
+    private(set) var questions: [Question]
     private(set) var createdAt: Date
     private(set) var score: Score = 0
     private(set) var answers: [Answer] = []
     
-    init(questions: [Question]) {
-        
-        self.questions = questions
+    init(questionsAdapter: GameQuestionAdapter) {
+        self.questions = questionsAdapter.getQuestions()
         createdAt = Date()
         
         notificateGameProgress()
