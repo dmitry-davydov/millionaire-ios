@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum Answer: String, Codable {
-    case A
-    case B
-    case C
-    case D
+enum Answer: Int, Codable, CaseIterable {
+    case a
+    case b
+    case c
+    case d
 }
 
 struct Variant: Codable {
@@ -22,4 +22,15 @@ struct Variant: Codable {
 struct Question: Codable {
     var text: String
     var variants: [Answer: Variant]
+    
+    func rightAnswer() -> Variant? {
+        for (_, v) in variants {
+            if !v.isRight { continue }
+            return v
+        }
+        
+        return nil
+    }
 }
+
+

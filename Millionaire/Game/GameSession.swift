@@ -10,17 +10,29 @@ import Foundation
 typealias Score = UInt
 
 class GameSession {
-    private(set) var currentQuestion: Int = 0
-    private(set) var questions: [Question] = []
+    private(set) var currentQuestion: Int = 0 {
+        didSet {
+            self.notificateGameProgress()
+        }
+    }
+    
+    private(set) var questions: [Question]
     private(set) var createdAt: Date
     private(set) var score: Score = 0
     private(set) var answers: [Answer] = []
     
-    init() {
+    init(questionsAdapter: GameQuestionAdapter) {
+        self.questions = questionsAdapter.getQuestions()
         createdAt = Date()
         
-        // получить вопросы
-        questions = QuestionDataProvider.loadQuestions()
+        notificateGameProgress()
+    }
+    
+    private func notificateGameProgress() {
+        NotificationCenter.default.post(
+            name: .GameProgressNotification,
+            object: GameProgress(current: currentQuestion, total: questions.count)
+        )
     }
     
     func finish() -> GameResults {
@@ -46,10 +58,10 @@ class GameSession {
         
         let nextQuestion = getCurrentQuestion()
         
-        return buildQuestiovViewModel(q: nextQuestion, shouldEndGame: !isRight || nextQuestion == nil)
+        return buildQuestionViewModel(q: nextQuestion, shouldEndGame: !isRight || nextQuestion == nil)
     }
     
-    private func buildQuestiovViewModel(q: Question?, shouldEndGame: Bool) -> QuestionViewModel {
+    private func buildQuestionViewModel(q: Question?, shouldEndGame: Bool) -> QuestionViewModel {
         return QuestionViewModel(
             question: q,
             score: score,
@@ -59,7 +71,7 @@ class GameSession {
     
     func getQuestionViewModel() -> QuestionViewModel {
         let q = getCurrentQuestion()
-        return buildQuestiovViewModel(q: q, shouldEndGame: q == nil)
+        return buildQuestionViewModel(q: q, shouldEndGame: q == nil)
     }
     
     // начислить очки

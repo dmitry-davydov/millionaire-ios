@@ -14,38 +14,58 @@ protocol GameViewControllerDelegate: class {
 class GameViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var variantAUIButton: UIButton!
-    @IBOutlet weak var variantBUIButton: UIButton!
-    @IBOutlet weak var variantCUIButton: UIButton!
-    @IBOutlet weak var variantDUIButton: UIButton!
+    @IBOutlet var answerButtonList: [UIButton]!
     
     weak var delegate: GameViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        layoutAnswerButtonList()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(progressDidChange(_:)), name: .GameProgressNotification, object: nil)
+        
+        
         Game.shared.newGame()
         guard let viewModel = Game.shared.getQuestionViewModel() else { return }
         
         renderScreen(viewModel: viewModel)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .GameProgressNotification, object: nil)
+    }
+    
+    @objc func progressDidChange(_ notification: Notification) {
+        guard let progress = notification.object as? GameProgress else { return }
+        
+        progressLabel.text = progress.description
+    }
+    
+    private func layoutAnswerButtonList() {
+        for button in answerButtonList {
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.buttonBorder .cgColor
+            button.layer.cornerRadius = 5
+        }
+    }
     
     @IBAction func variantAPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.A)
+        handleVariant(answer: Answer.a)
     }
     
     @IBAction func variantBPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.B)
+        handleVariant(answer: Answer.b)
     }
     
     @IBAction func variantCPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.C)
+        handleVariant(answer: Answer.c)
     }
     
     @IBAction func variantDPressed(_ sender: UIButton) {
-        handleVariant(answer: Answer.D)
+        handleVariant(answer: Answer.d)
     }
 
     private func handleVariant(answer: Answer) {
@@ -68,22 +88,11 @@ class GameViewController: UIViewController {
         guard let q = viewModel.question else { return }
         questionLabel.text = q.text
         
-        variantAUIButton.setTitle(q.variants[Answer.A]?.text, for: .normal)
-        variantBUIButton.setTitle(q.variants[Answer.B]?.text, for: .normal)
-        variantCUIButton.setTitle(q.variants[Answer.C]?.text, for: .normal)
-        variantDUIButton.setTitle(q.variants[Answer.D]?.text, for: .normal)
+        for (index, button) in answerButtonList.enumerated() {
+            let answer = Answer.init(rawValue: index)
+            button.setTitle(q.variants[answer!]?.text, for: .normal)
+        }
         
         scoreLabel.text = "Score: \(viewModel.score)"
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
